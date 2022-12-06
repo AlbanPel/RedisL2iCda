@@ -104,16 +104,23 @@
             <div class="col">
               <div class="card shadow-sm">
                   <img src="<?= $aBook->image ?>" alt="<?= $aBook->image ?>">
-                  <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em"><?= $aBook->title ?></text>
                 <div class="card-body">
-                  <p class="card-text"><?= $aBook->subtitle ?></p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
+                    <p class="card-title"><h4><?= $aBook->title ?></h4></p>
+                    <p class="card-text">
+                        <?= $aBook->subtitle ?>
+                        </br>Prix:
+                        <?= $aBook->price ?>
+                        </br>ISBN :
+                        <?= $aBook->isbn13 ?>
+                    </p>
+
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                        </div>
+                        <small class="text-muted">9 mins</small>
+                      </div>
                 </div>
               </div>
             </div>
