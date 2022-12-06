@@ -1,4 +1,4 @@
-<?php include_once('api.php');  ?>
+<?php include_once('api.php'); ?>
 <!doctype html>
 <html lang="en">
 
@@ -91,40 +91,12 @@
       </ul>
 
     </header>
-
   </div>
-
   <main>
     <div class="album py-5 bg-light">
       <div class="container">
-
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-          <?php foreach ($bookList as $aBook) : ?>
-            <div class="col">
-              <div class="card shadow-sm">
-                  <img src="<?= $aBook->image ?>" alt="<?= $aBook->image ?>">
-                <div class="card-body">
-                    <p class="card-title"><h4><?= $aBook->title ?></h4></p>
-                    <p class="card-text">
-                        <?= $aBook->subtitle ?>
-                        </br>Prix:
-                        <?= $aBook->price ?>
-                        </br>ISBN :
-                        <?= $aBook->isbn13 ?>
-                    </p>
-
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                        </div>
-                        <small class="text-muted">9 mins</small>
-                      </div>
-                </div>
-              </div>
-            </div>
-          <?php endforeach; ?>
+            <?php include_once('Book/listNewBooks.php'); ?>
         </div>
       </div>
     </div>
