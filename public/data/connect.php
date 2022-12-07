@@ -20,6 +20,13 @@ function getRedisBookByIsbn($isbn13)
     return (object) $redis->hGetAll('keyBook:' . $isbn13);
 }
 
+function connectToRedisDB()
+{
+    $redis = new \Redis();
+    $redis->connect('redis',6379);
+    return $redis;
+}
+
 
 
 
