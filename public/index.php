@@ -75,32 +75,17 @@
   <div class="container">
 
     <header class="d-flex justify-content-center py-3">
-
-      <ul class="nav nav-pills">
-
-        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-
-        <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-
-        <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-
-        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-
-      </ul>
-
+        <?php include_once('layout/menu.php') ?>
     </header>
   </div>
   <main>
     <div class="album py-5 bg-light">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <?php include_once('Book/listNewBooks.php'); ?>
+            <?php include_once('book/listNewBooks.php'); ?>
         </div>
       </div>
     </div>
-
   </main>
 
   <footer class="text-muted py-5">

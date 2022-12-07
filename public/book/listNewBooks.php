@@ -1,6 +1,5 @@
 
 <?php
-
 $books = newBooks();
 foreach ($books as $book) : ?>
     <div class="col">
@@ -17,7 +16,7 @@ foreach ($books as $book) : ?>
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <a href="Book/details.php?isbn=<?= $book->isbn13 ?>" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+                        <a href="book/details.php?isbn=<?= $book->isbn13 ?>" type="button" class="btn btn-sm btn-outline-secondary">View</a>
                         <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                     </div>
                     <small class="text-muted">9 mins</small>
