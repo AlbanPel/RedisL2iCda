@@ -1,7 +1,12 @@
 <?php
-include_once '../api.php';
+include_once '../data/connect.php';
+$redis = new \Redis();
+$redis->connect('redis',6379);
+//path -> params isbn
 $isbn13 = htmlspecialchars($_GET["isbn"]);
-$book = getBookByISBN($isbn13);
+
+//function getRedisBookByIsbn in connect.php
+$book = getRedisBookByIsbn($isbn13);
 ?>
 <!doctype html>
 <html lang="en">

@@ -1,4 +1,20 @@
-<?php include_once('api.php'); ?>
+<?php
+    //call file function
+    include_once('data/connect.php');
+    //connect to resid
+    $redis = new \Redis();
+    $redis->connect('redis',6379);
+    //function newbook in file connect.php && check keybook exist
+    $books = newBooks();
+    foreach ($books as $book) {
+        $isbn13 = $book->isbn13;
+        if(!$redis->hExists('keyBook:' . $isbn13, 'isbn13' )) {
+            require('data/data.php');
+        }
+    }
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -73,7 +89,6 @@
 
 <body>
   <div class="container">
-
     <header class="d-flex justify-content-center py-3">
         <?php include_once('layout/menu.php') ?>
     </header>

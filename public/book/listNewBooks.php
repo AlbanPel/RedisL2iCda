@@ -1,5 +1,8 @@
 
 <?php
+
+//get vue via API
+//get vue via REDIS
 $books = newBooks();
 foreach ($books as $book) : ?>
     <div class="col">
