@@ -22,7 +22,7 @@ foreach ($books as $book) {
         'url' => $details->url,
         'pdf' => $details->pdf,
         'epub' => $details->epub,
-        'mobi' => $details->mobi,
+        'mobi' => $details->mobi
     ]);
 
 }
