@@ -3,8 +3,12 @@ include_once '../data/connect.php';
 $redis = new \Redis();
 $redis->connect('redis', 6379);
 
-$bookSelected = htmlspecialchars($_GET['addToCart']);
-$book = getRedisBookByIsbn($bookSelected);
+$bookSelected = htmlspecialchars($_GET['addItem']);
+if (!empty($bookSelected)) {
+    $userItem = $redis->SET('userCart:1', '1');
+    $redis->LPUSH('NumCommand:1', $bookSelected);
+    $isbn13Items = $redis->LRANGE('NumCommand:1', 0, -1);
+}
 
 ?>
 <!doctype html>
@@ -83,25 +87,26 @@ $book = getRedisBookByIsbn($bookSelected);
             <div class="container h-100 py-5">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col">
-
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th scope="col" class="h5">Shopping Bag</th>
                                         <th scope="col">ISBN13</th>
-                                        <th scope="col">Quantity</th>
                                         <th scope="col">Price</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr> <?php foreach ($isbn13Items as $isbn13) :
+                                            $book = getRedisBookByIsbn($isbn13);
+                                        ?> 
                                         <th scope="row">
                                             <div class="d-flex align-items-center">
                                                 <img src="<?= $book->image ?>" class="img-fluid rounded-3" style="width: 120px;" alt="Book">
                                                 <div class="flex-column ms-4">
                                                     <p class="mb-2"><?= $book->title ?></p>
                                                     <p class="mb-0"><?= $book->authors ?></p>
+                                                    <button class="btn btn-danger">Remove</button>
                                                 </div>
                                             </div>
                                         </th>
@@ -109,22 +114,10 @@ $book = getRedisBookByIsbn($bookSelected);
                                             <p class="mb-0" style="font-weight: 500;"><?= $book->isbn13 ?></p>
                                         </td>
                                         <td class="align-middle">
-                                            <div class="d-flex flex-row">
-                                                <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                                                    <i class="fas fa-minus"></i>
-                                                </button>
-
-                                                <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm" style="width: 50px;" />
-
-                                                <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                                                    <i class="fas fa-plus"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                        <td class="align-middle">
                                             <p class="mb-0 fw-bold text-secondary"><?= $book->price ?></p>
                                         </td>
                                     </tr>
+                                    <?php endforeach;?>
                                 </tbody>
                             </table>
                         </div>
