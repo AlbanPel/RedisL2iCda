@@ -96,6 +96,7 @@ $book = getRedisBookByIsbn($isbn13);
                         <a href="<?=  $book->download ?>" class="btn btn-sm btn-outline-info mb-3">Download</a>
                         <a href="<?=  $book->pdf ?>" class="btn btn-sm btn-outline-secondary mb-3">Download PDF</a>
                         <a href="<?=  $book->epub ?>" class="btn btn-sm btn-outline-primary mb-3">Download EPUB</a>
+                        <a href="shoppingCart.php?addItem=<?=$book->isbn13 ?>" class="btn btn-sm btn-success mb-3">Add to cart</a>
                     </div>
                 </div>
             </div>

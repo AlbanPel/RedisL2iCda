@@ -9,7 +9,7 @@
     foreach ($books as $book) {
         $isbn13 = $book->isbn13;
         if(!$redis->hExists('keyBook:' . $isbn13, 'isbn13' )) {
-            include('data/data.php');
+            include_once('data/data.php');
             break;
             //echo $isbn13;
         }
@@ -18,7 +18,6 @@
 
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
