@@ -88,25 +88,23 @@ $book = getRedisBookByIsbn($isbn13);
                         <img src="<?= $book->image ?>" class="img-fluid rounded-start" alt="<?= $book->image ?>">
                     </div>
                     <div class="col-md-8">
-                        <form method="POST" action="./shoppingCart.php">
-                            <div class="card-body">
-                                <h3 class="card-title text-info fw-bold"><?= $book->title ?></h3>
-                                <h5 class="card-text">Subtitle: <?= $book->subtitle ?></h5>
-                                <p class="card-text">Description : <?= $book->description ?></p>
-                                <p class="card-text">Authors : <?= $book->authors ?></p>
-                                <p class="card-text">Publisher : <?= $book->publisher ?></p>
-                                <p class="card-text">Year : <span class="fw-bold"><?= $book->year ?></span></p>
-                                <p class="card-text">Pages count : <?= $book->pages ?></p>
-                                <p class="card-text">Language : <?= $book->language ?></p>
-                                <p class="card-text">ISBN13 : <?= $book->isbn13 ?></p>
-                                <p class="card-text">ISBN10 :<?= $book->isbn10 ?></p>
-                                <p class="card-text">Price : <span class="fw-bold text-danger"><?= $book->price ?></span></p>
-                                <a href="<?= $book->download ?>" class="btn btn-sm btn-outline-info mb-3">Download</a>
-                                <a href="<?= $book->pdf ?>" class="btn btn-sm btn-outline-secondary mb-3">Download PDF</a>
-                                <a href="<?= $book->epub ?>" class="btn btn-sm btn-outline-primary mb-3">Download EPUB</a>
-                                <a href="../layout/shoppingCart.php?addItem=<?=$book->isbn13 ?>" class="btn btn-sm btn-success mb-3">Add to cart</a>
-                            </div>
-                        </form>
+                        <div class="card-body">
+                            <h3 class="card-title text-info fw-bold"><?= $book->title ?></h3>
+                            <h5 class="card-text">Subtitle: <?= $book->subtitle ?></h5>
+                            <p class="card-text">Description : <?= $book->description ?></p>
+                            <p class="card-text">Authors : <?= $book->authors ?></p>
+                            <p class="card-text">Publisher : <?= $book->publisher ?></p>
+                            <p class="card-text">Year : <span class="fw-bold"><?= $book->year ?></span></p>
+                            <p class="card-text">Pages count : <?= $book->pages ?></p>
+                            <p class="card-text">Language : <?= $book->language ?></p>
+                            <p class="card-text">ISBN13 : <?= $book->isbn13 ?></p>
+                            <p class="card-text">ISBN10 :<?= $book->isbn10 ?></p>
+                            <p class="card-text">Price : <span class="fw-bold text-danger"><?= $book->price ?></span></p>
+                            <a href="<?= $book->download ?>" class="btn btn-sm btn-outline-info mb-3">Download</a>
+                            <a href="<?= $book->pdf ?>" class="btn btn-sm btn-outline-secondary mb-3">Download PDF</a>
+                            <a href="<?= $book->epub ?>" class="btn btn-sm btn-outline-primary mb-3">Download EPUB</a>
+                            <a href="../layout/shoppingCart.php?addItem=<?=$book->isbn13 ?>" class="btn btn-sm btn-success mb-3">Add to cart</a>
+                        </div>
                     </div>
                 </div>
             </div>
