@@ -8,8 +8,10 @@
     $books = newBooks();
     foreach ($books as $book) {
         $isbn13 = $book->isbn13;
-        if(!$redis->hExists('keyBook:' . $isbn13, 'isbn13' )) {
-            require('data/data.php');
+        if($redis->hExists('keyBook:' . $isbn13, 'isbn13' )) {
+            include('data/data.php');
+            break;
+            //echo $isbn13;
         }
     }
 
